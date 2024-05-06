@@ -1,8 +1,6 @@
-# DSC511-Project
-To provide a comprehensive overview of your project as described in the Jupyter notebook you uploaded, I'll start by examining the notebook's content. I'll analyze the dataset description, preprocessing steps, analytical approaches, and summarize any significant findings. Let's dive into the notebook to get the details.
+# DSC511 - Steam Reviews Project
 
 ### Project Overview:
-**Title:** Steam Reviews Project
 
 We selected a dataset about Steam reviews in 2021 from Kaggle. You can see the link below: \
 https://www.kaggle.com/datasets/najzeko/steam-reviews-2021 The dataset about Steam reviews is fascinating because it encapsulates a wealth of information on consumer preferences, behaviours, and sentiments within the vast PC gaming community. It serves as a rich corpus for sentiment analysis, enabling the development of advanced recommendation systems and the assessment of game features that resonate with or disappoint players. Additionally, this dataset can provide valuable feedback for developers and publishers, offering a direct line to consumer opinions on game performance, features, and potential improvements. We found the dataset interesting because, as students with programming backgrounds we are intrigued by video games both from a programming aspect but also from a “gamer” perspective. Part of our challenge will also be to view how the sentiment analysis will work in an environment where people use irony, jokes, and use of slang especially since we expect the average steam user to be of a younger age.
