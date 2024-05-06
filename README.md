@@ -3,7 +3,8 @@
 ### Project Overview:
 
 We selected a dataset about Steam reviews in 2021 from Kaggle. You can see the link below: \
-https://www.kaggle.com/datasets/najzeko/steam-reviews-2021 The dataset about Steam reviews is fascinating because it encapsulates a wealth of information on consumer preferences, behaviours, and sentiments within the vast PC gaming community. It serves as a rich corpus for sentiment analysis, enabling the development of advanced recommendation systems and the assessment of game features that resonate with or disappoint players. Additionally, this dataset can provide valuable feedback for developers and publishers, offering a direct line to consumer opinions on game performance, features, and potential improvements. We found the dataset interesting because, as students with programming backgrounds we are intrigued by video games both from a programming aspect but also from a “gamer” perspective. Part of our challenge will also be to view how the sentiment analysis will work in an environment where people use irony, jokes, and use of slang especially since we expect the average steam user to be of a younger age.
+https://www.kaggle.com/datasets/najzeko/steam-reviews-2021 \
+The dataset about Steam reviews is fascinating because it encapsulates a wealth of information on consumer preferences, behaviours, and sentiments within the vast PC gaming community. It serves as a rich corpus for sentiment analysis, enabling the development of advanced recommendation systems and the assessment of game features that resonate with or disappoint players. Additionally, this dataset can provide valuable feedback for developers and publishers, offering a direct line to consumer opinions on game performance, features, and potential improvements. We found the dataset interesting because, as students with programming backgrounds we are intrigued by video games both from a programming aspect but also from a “gamer” perspective. Part of our challenge will also be to view how the sentiment analysis will work in an environment where people use irony, jokes, and use of slang especially since we expect the average steam user to be of a younger age.
 Our main subject of interest is the text analysis of the review combined with the actual review (positive or negative).  Using machine learning algorithms, we will try to predict the recommended feature.
 Also, we will perform graph analysis on our dataset.
 
@@ -35,28 +36,26 @@ Our data set now (with only English as language) has 7300865 rows and 23 columns
 - **author_playtime_at_review**: Playtime in minutes that the reviewer had at the time of writing the review.
 - **author_last_played**: Unix timestamp of the last time the reviewer played the game.
 
-
 ### Preprocessing Steps:
-1. **Data Mounting:** The dataset is stored and accessed from Google Drive.
-2. **Data Loading:** The data is loaded into a Spark DataFrame using the `spark.read.csv` method with options to recognize headers and infer data types automatically.
-Files eksigisi etc
-selected only the english
-remove missing values and duplicates
-parquet file
-
-we created a sample, stratified sampling
-convert data types to numeric
+- **Data Mounting:** The dataset is stored and accessed from Google Drive.
+- **Data Loading:** The data is loaded into a Spark DataFrame using the `spark.read.csv` method with options to recognize headers and infer data types automatically.
+- Files eksigisi etc
+- selected only the english
+- remove missing values and duplicates
+- parquet file
+- we created a sample, stratified sampling
+- convert data types to numeric
 
 (anafernoume kapou kai to exploratory data analysis??????)
 Findings from eda
 Imbalanced data set
 
 ### Analytical Approaches:
-feature selection
+- feature selection
 We decided to fit our model using these 3 features, because they were the top 3 features according to the feature selection methods we tried before.
 The important features are : 'weighted_vote_score', 'votes_helpful', 
  'author_playtime_forever'.
-binary classification
+- binary classification
 Here, we use 4 algorithms for the binary classification. The 4 algorithms are: Logistic Regression, RandomForestClassifier, GBTClassifier and DecisionTreeClassifer.
 F1 score to compare
 
@@ -68,9 +67,10 @@ We perform Grid Search Cross Validation for our 2 best models according to the F
 
 best model and hyperparameters na grapsoume poia einai
 
-text analysis
-sentiment analysis, recommendation
-graph analysis
+- text analysis
+- sentiment analysis
+- recommendation
+- graph analysis
 1. **Sentiment Analysis:** The project involves analyzing the textual content of the reviews to categorize them as positive or negative. This analysis aims to predict the 'recommended' feature in the reviews.
 2. **Graph Analysis:** Beyond traditional analysis, the project explores graph analysis to understand the relationships and network effects within the data.
 
