@@ -90,7 +90,7 @@ It is important for us to make a good prediction also for the minority class whi
 
 Then, we perform Grid Search Cross Validation with 5 folds (K=5) for our 2 best models according to the F1 Score. The 2 best models are Random Forest and Decision Tree Classifiers. The 2 best models are Random forest classifier and Decision Tree Classifiers. 
 
-The best model for the binary classification problem to predict if a user recommended or not the game is using the Random Forest Classifier with these hyperparameters: Number of trees to train: 20 and Maximum depth of the decision trees: 5 (default value) 
+The best model for the binary classification problem to predict if a user recommended or not the app is using the Random Forest Classifier with these hyperparameters: Number of trees to train: 20 and Maximum depth of the decision trees: 5
 
 - **Text Analysis:** We begin the text analysis part by cleaning the review column and creating the pipeline. Firstly, we split the sentences in set of words using the tokenizer and we remove the stopwords using the remover. Also, HashingTF is used to map a set of words to fixed-length feature vectors, where each word is represented as a feature and the value of the feature corresponds to the frequency of the word in the sentence. The IDF is then computed to determine the inverse document frequency, which forms part of the TF-IDF measure, emphasizing the importance of a word based on its rarity across documents. Then the Logistic Regression is applied as a classification algorithm to predict categorical outcomes. Finally, our text is pushed through the pipeline, and we evaluate our metrics before transforming our original DataFrame to consist of the new columns. 
 
@@ -117,7 +117,7 @@ The best model for the binary classification problem to predict if a user recomm
 From the Exploratory Data Analysis (EDA) we observe that our target variable is really imbalanced because the majority of the ‘recommended’ points is ‘TRUE’.  The most reviews have zero votes helpful, zero votes funny and zero comments count. Also, the feature votes helpful and the comment count are highly correlated and the features author playtime at review and the author playtime forever are also highly correlated. 
 
 The feature selection showed the 3 most important variables are  'weighted_vote_score', 'votes_helpful' and 'author_playtime_forever'.
-With the class weight our F1 score improved a lot.
+With class weights our F1 score improved a lot.
 The best model of the binary classification is the Random Forest Classifier with these hyperparameters: Number of trees to train: 20 and Maximum depth of the decision trees: 5 
 
 The majority reviews have positive sentiment score which is consistent with our previous findings that most reviews recommend the apps.
