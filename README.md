@@ -72,7 +72,7 @@ After the selection of only English as language the data set has 7300865 rows an
 
 -  **Missing values and Duplicates:** We removed any missing values and duplicates. 
 
-- **Data Files:** We converted the csv file to parquet file to reduce the execution time. So, if you want to do this process, you have to use  the csv file from the link and run the code to convert it to parquet. 
+- **Data Files:** We converted the csv file to parquet file to reduce the execution time. So, if you want to do this process, you have to use the csv file from the link.
 
 - **Stratified sampling:** We ensured that each subset of the dataset (each game) maintains the same percentage of samples of each class as the original dataset. In other words, it helps us preserve the proportion of classes across different subsets. Stratifying is particularly important in situations where the target variable (and or another feature) in a dataset is imbalanced, meaning some classes are underrepresented compared to others. 
 
@@ -92,13 +92,13 @@ Then, we perform Grid Search Cross Validation with 5 folds (K=5) for our 2 best 
 
 The best model for the binary classification problem to predict if a user recommended or not the game is using the Random Forest Classifier with these hyperparameters: Number of trees to train: 20 and Maximum depth of the decision trees: 5 (default value) 
 
-- **Text Analysis: ** We begin the text analysis part by cleaning the review column and creating the pipeline. Firstly, we split the sentences in set of words using the tokenizer and we remove the stopwords using the remover. Also, HashingTF is used to map a set of words to fixed-length feature vectors, where each word is represented as a feature and the value of the feature corresponds to the frequency of the word in the sentence. The IDF is then computed to determine the inverse document frequency, which forms part of the TF-IDF measure, emphasizing the importance of a word based on its rarity across documents. Then the Logistic Regression is applied as a classification algorithm to predict categorical outcomes. Finally, our text is pushed through the pipeline, and we evaluate our metrics before transforming our original DataFrame to consist of the new columns. 
+- **Text Analysis:** We begin the text analysis part by cleaning the review column and creating the pipeline. Firstly, we split the sentences in set of words using the tokenizer and we remove the stopwords using the remover. Also, HashingTF is used to map a set of words to fixed-length feature vectors, where each word is represented as a feature and the value of the feature corresponds to the frequency of the word in the sentence. The IDF is then computed to determine the inverse document frequency, which forms part of the TF-IDF measure, emphasizing the importance of a word based on its rarity across documents. Then the Logistic Regression is applied as a classification algorithm to predict categorical outcomes. Finally, our text is pushed through the pipeline, and we evaluate our metrics before transforming our original DataFrame to consist of the new columns. 
 
 - **Sentiment Analysis:** The project involves analyzing the textual content of the reviews to categorize them as positive or negative. This way we quantify the sentiment of each review based on its context. 
 
--**Recommendation:** We take the nouns of each review using a POS tagging method, this way we can perform TF-IDF on the nouns. This way each game is characterized by a set of nouns. We used the ALS algorithm to recommend to each author some apps that may he likes. 
+- **Recommendation:** We take the nouns of each review using a POS tagging method, this way we can perform TF-IDF on the nouns. This way each game is characterized by a set of nouns. We used the ALS algorithm to recommend to each author some apps that may he likes. 
 
--**Graph Analysis:** Beyond traditional analysis, the project explores graph analysis to understand the relationships and network effects within the data. We build our graph using the video games and the review authors as Vertices, and the reviews themselves as Edges, and using our target variable as the weight. However, due to the datasets great sparsity it is difficult to build well-connected graphs. So, we continued our graph analysis attempts for clearly research purposes.  
+- **Graph Analysis:** Beyond traditional analysis, the project explores graph analysis to understand the relationships and network effects within the data. We build our graph using the video games and the review authors as Vertices, and the reviews themselves as Edges, and using our target variable as the weight. However, due to the datasets great sparsity it is difficult to build well-connected graphs. So, we continued our graph analysis attempts for clearly research purposes.  
 
  
 
@@ -116,7 +116,13 @@ The best model for the binary classification problem to predict if a user recomm
 
 From the Exploratory Data Analysis (EDA) we observe that our target variable is really imbalanced because the majority of the ‘recommended’ points is ‘TRUE’.  The most reviews have zero votes helpful, zero votes funny and zero comments count. Also, the feature votes helpful and the comment count are highly correlated and the features author playtime at review and the author playtime forever are also highly correlated. 
 
- 
+The feature selection showed the 3 most important variables are  'weighted_vote_score', 'votes_helpful' and 'author_playtime_forever'.
+With the class weight our F1 score improved a lot.
+The best model of the binary classification is the Random Forest Classifier with these hyperparameters: Number of trees to train: 20 and Maximum depth of the decision trees: 5 
+
+The majority reviews have positive sentiment score which is consistent with our previous findings that most reviews recommend the apps.
+The word 'good' has the most occurences in the reviews with positive sentiment score. However the word 'no' has the most occurences in the reviews with negative sentiment score.
+
 
 We would recommend Steam to reward consistent and insightful reviewers. This would solve many of the connectivity issues which were seen during our graph analysis. Steam can heavily benefit from this because they can get much more information from their users which can translate to improvements and profits. In general, we believe that an increase in reviews (especially meaningful and insightful ones) can help generate more information which yields better results and understanding from an analysis point of view.  
 
