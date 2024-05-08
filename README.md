@@ -83,13 +83,9 @@ After the selection of only English as language the data set has 7300865 rows an
 - **Feature selection:** We fit our model using Random Forest, Decision Tree and Gradient Boosted Trees Classifiers and we calculate the feature importances. We find that the 3 most  important features are 'weighted_vote_score', 'votes_helpful' and 'author_playtime_forever'. 
 
 - **Binary Classification:** 
-
-We use 3 algorithms for the binary classification. The 3 algorithms are: Logistic Regression, RandomForestClassifier and DecisionTreeClassifer. We compare the machine learning algorithm’s based on the F1 scores because F1 score is more robust when we deal with imbalanced data. At our first attempt we had a very low F1 scores.   
-
-It is important for us to make a good prediction also for the minority class which is the 'not recommended'.  To address the issue of the imbalanced response variable we create class weights and try to improve the metric's scores.  Using class weights helped to improve the F1 scores. 
-
+We use 3 algorithms for the binary classification. The 3 algorithms are Logistic Regression, RandomForestClassifier and DecisionTreeClassifer. We compare the machine learning algorithm’s based on the F1 scores because F1 score is more robust when we deal with imbalanced data. It is important for us to make a good prediction also for the minority class which is the 'not recommended'. At our first attempt we had a very low F1 scores.   
+To address the issue of the imbalanced response variable we create class weights and try to improve the metric's scores.  Using class weights helped to improve the F1 scores. 
 Then, we perform Grid Search Cross Validation with 5 folds (K=5) for our 2 best models according to the F1 Score. The 2 best models are Random Forest and Decision Tree Classifiers. The 2 best models are Random forest classifier and Decision Tree Classifiers. 
-
 The best model for the binary classification problem to predict if a user recommended or not the app is using the Random Forest Classifier with these hyperparameters: Number of trees to train: 20 and Maximum depth of the decision trees: 5
 
 - **Text Analysis:** We begin the text analysis part by cleaning the review column and creating the pipeline. Firstly, we split the sentences in set of words using the tokenizer and we remove the stopwords using the remover. Also, HashingTF is used to map a set of words to fixed-length feature vectors, where each word is represented as a feature and the value of the feature corresponds to the frequency of the word in the sentence. The IDF is then computed to determine the inverse document frequency, which forms part of the TF-IDF measure, emphasizing the importance of a word based on its rarity across documents. Then the Logistic Regression is applied as a classification algorithm to predict categorical outcomes. Finally, our text is pushed through the pipeline, and we evaluate our metrics before transforming our original DataFrame to consist of the new columns. 
