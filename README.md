@@ -72,7 +72,7 @@ After the selection of only English as language the data set has 7300865 rows an
 
 -  **Missing values and Duplicates:** We removed any missing values and duplicates. 
 
-- **Data Files:** We converted the csv file to parquet file to reduce the execution time. So, if you want to do this process, you have to use the csv file from the link.
+- **Data Files:** We converted the csv file to parquet file to reduce the execution time. If you want to do the process, you have to use the csv file from the link. The commands for transforming the file to parquet are inside the ipynb file.
 
 - **Stratified sampling:** We ensured that each subset of the dataset (each game) maintains the same percentage of samples of each class as the original dataset. In other words, it helps us preserve the proportion of classes across different subsets. Stratifying is particularly important in situations where the target variable (and or another feature) in a dataset is imbalanced, meaning some classes are underrepresented compared to others. 
 
